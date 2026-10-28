@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>eloàme Candyshop</title>
+<meta name="description" content="eloàme candyshop is closed. New menu coming soon. Come back on the 31st!">
+<meta name="theme-color" content="#6d1b24">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-12 -12 24 24'%3E%3Crect x='-12' y='-12' width='24' height='24' rx='5' fill='%236d1b24'/%3E%3Cg fill='%23f5ecd2'%3E%3Ccircle cx='0' cy='-4' r='4'/%3E%3Ccircle cx='4' cy='0' r='4'/%3E%3Ccircle cx='0' cy='4' r='4'/%3E%3Ccircle cx='-4' cy='0' r='4'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+html{color-scheme:light}
+body{margin:0}
+[hidden]{display:none!important}
+
+:root{
+  --bg:#eef2dc;--paper:#f7f1dc;--ink:#3a4a1e;--muted:#667447;--sage:#8a9b66;--wine:#6d1b24;
+  --line:#a9b685;--window:#1f2a1b;--stripe:#6d1b24;--stripe2:#f5ecd2;--btn-bg:#6d1b24;--btn-ink:#f7ecd0;
+  --chalk:#f3e9c9;
+  --serif:'Lora',Georgia,serif;
+  --script:'Dancing Script','Segoe Script','Brush Script MT',cursive;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#171e11;--paper:#252e1b;--ink:#e8eed2;--muted:#a7b585;--sage:#6f8250;--wine:#e0a0a7;
+    --line:#4c5b36;--window:#0f150c;--stripe:#8c2530;--stripe2:#d9cfae;--btn-bg:#e8b3b8;--btn-ink:#3a0f14;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#171e11;--paper:#252e1b;--ink:#e8eed2;--muted:#a7b585;--sage:#6f8250;--wine:#e0a0a7;
+  --line:#4c5b36;--window:#0f150c;--stripe:#8c2530;--stripe2:#d9cfae;--btn-bg:#e8b3b8;--btn-ink:#3a0f14;color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--bg);color:var(--ink);font-family:var(--serif);font-size:16px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:28px 48px;
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+h1,h2,p{margin:0}
+.clover{width:1em;height:1em;display:inline-block;vertical-align:-.12em;color:currentColor}
+.shop{max-width:760px;margin-inline:auto;animation:rise .7s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* sign board */
+.signboard{
+  background:var(--paper);border:2px solid var(--sage);border-bottom:0;border-radius:14px 14px 0 0;
+  padding:22px 16px 20px;display:grid;justify-items:center;gap:6px;
+}
+.signboard .clover{font-size:30px}
+.logo{font-family:var(--script);font-weight:700;font-size:clamp(3.6rem,16vw,6.6rem);line-height:1;letter-spacing:-.01em}
+.plate{
+  background:#6d1b24;color:#f1dfa8;border-radius:12px;padding:.25em 1.3em .35em;
+  font-family:var(--script);font-weight:700;font-size:clamp(1.3rem,5vw,2rem);
+  box-shadow:inset 0 0 0 3px #6d1b24,inset 0 0 0 4.5px #e8d49b;display:flex;gap:.45em;align-items:center;
+}
+.plate .clover{font-size:.8em;color:#f1dfa8}
+.rail{height:12px;background:var(--sage)}
+.awning{display:flex;margin-inline:-6px;position:relative;z-index:2;filter:drop-shadow(0 4px 3px rgba(0,0,0,.22))}
+.awning i{flex:1;height:clamp(38px,8vw,62px);background:var(--stripe);border-radius:0 0 50% 50%/0 0 26px 26px}
+.awning i:nth-child(even){background:var(--stripe2)}
+
+/* door + window */
+.front{
+  display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr);gap:14px;
+  background:var(--paper);padding:92px 14px 14px;margin-top:-24px;border-inline:2px solid var(--sage);position:relative;
+}
+.door{
+  position:relative;display:block;min-height:clamp(300px,58vw,430px);padding:0;border:10px solid var(--sage);
+  background:#2a1d10;font:inherit;color:inherit;cursor:pointer;
+}
+.leaf{position:absolute;inset:0;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) 32%;background:var(--sage);transition:filter .15s}
+.door:hover .leaf{filter:brightness(1.06)}
+.glass{
+  margin:8px 8px 0;min-width:0;overflow:hidden;position:relative;display:grid;place-content:center;justify-items:center;gap:8px;padding:6px;color:var(--chalk);
+  background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.07) 40% 55%,transparent 55%),var(--window);
+}
+.glass .star{position:absolute;top:13%;left:50%;width:16px;height:16px;margin-left:-8px;color:var(--chalk);opacity:.85}
+.closed{font-family:var(--script);font-weight:700;font-size:clamp(1.5rem,6.2vw,3rem);line-height:1;transform:rotate(-5deg)}
+.rule{display:flex;align-items:center;gap:6px;width:76%;color:var(--chalk)}
+.rule::before,.rule::after{content:"";flex:1;height:2px;background:currentColor;border-radius:2px;opacity:.85}
+.rule .clover{font-size:18px}
+.panel{margin:0 8px 8px;display:grid;place-items:center;border:2px solid rgba(0,0,0,.15);border-top:0}
+.kick{display:block;width:60%;height:13px;background:#6d1b24;border-radius:2px}
+.knob{position:absolute;right:14px;top:60%;width:12px;height:12px;border-radius:50%;background:#e8c46a;box-shadow:0 1px 2px rgba(0,0,0,.45)}
+.door.rattle{animation:rattle .5s ease}
+@keyframes rattle{15%{transform:translateX(-5px) rotate(-.6deg)}35%{transform:translateX(5px) rotate(.6deg)}55%{transform:translateX(-3px)}75%{transform:translateX(2px)}}
+
+.window{
+  position:relative;overflow:hidden;min-height:clamp(300px,58vw,430px);border:10px solid var(--sage);color:var(--chalk);
+  background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.055) 30% 44%,transparent 44% 60%,rgba(255,255,255,.035) 60% 68%,transparent 68%),var(--window);
+  display:grid;place-content:center;justify-items:center;gap:6px;text-align:center;padding:28px 14px;
+}
+.window .say{font-family:var(--script);font-weight:700;font-size:clamp(2rem,8.4vw,4.2rem);line-height:1.08}
+.window .say span{display:block}
+.swash{width:min(70%,260px);height:auto;color:var(--chalk);margin-top:4px}
+.spark{position:absolute;width:24px;height:24px;color:var(--chalk);opacity:.85}
+.spark.a{left:8%;top:9%}.spark.b{right:8%;bottom:11%}
+.window .clover.top{font-size:26px;color:var(--chalk);margin-bottom:6px}
+.sill{height:15px;background:var(--sage);margin-inline:-6px;border-radius:0 0 4px 4px}
+.pavement{height:38px;margin-top:6px;background:repeating-linear-gradient(90deg,transparent 0 62px,var(--line) 62px 64px);border-top:2px solid var(--line);opacity:.9}
+
+/* hanging sign above the door */
+.hang{position:absolute;z-index:3;top:14px;left:14px;width:calc((100% - 28px - 14px) * .8 / 2.3);display:grid;justify-items:center;transform-origin:50% 0;animation:sway 4.5s ease-in-out infinite}
+@keyframes sway{0%,100%{transform:rotate(-1.6deg)}50%{transform:rotate(1.6deg)}}
+.chains{display:flex;justify-content:space-between;width:58%;height:17px}
+.chains i{width:3px;height:100%;background:repeating-linear-gradient(#c9a24a 0 4px,#7c5d1c 4px 6px);border-radius:2px}
+.tag{
+  position:relative;width:100%;max-width:190px;text-align:center;padding:.3em .5em .4em;border-radius:12px;
+  background:#6d1b24;color:#f1dfa8;font-family:var(--script);font-weight:700;font-size:clamp(1.05rem,4.2vw,1.3rem);line-height:1.05;
+  box-shadow:inset 0 0 0 3px #6d1b24,inset 0 0 0 4.5px #e8d49b,0 3px 5px rgba(0,0,0,.25);
+}
+.tag span{display:block}
+
+/* the note */
+.veil{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:20px;background:rgba(20,28,14,.62);animation:fade .25s ease both}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.note{
+  position:relative;width:min(100%,380px);text-align:center;color:#4b5b2b;
+  padding:36px 30px 30px;display:grid;justify-items:center;gap:10px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .3 0 0 0 0 .2 0 0 0 .13 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E"),linear-gradient(170deg,#f3e8c8,#e6d7ab);
+  -webkit-mask:linear-gradient(#000 0 0) center/calc(100% - 12px) calc(100% - 12px) no-repeat,radial-gradient(circle 4.5px,#0000 97%,#000) -6.5px -6.5px/13px 13px;
+          mask:linear-gradient(#000 0 0) center/calc(100% - 12px) calc(100% - 12px) no-repeat,radial-gradient(circle 4.5px,#0000 97%,#000) -6.5px -6.5px/13px 13px;
+  animation:pop .35s cubic-bezier(.3,1.4,.5,1) both;
+}
+@keyframes pop{from{opacity:0;transform:scale(.88) translateY(10px)}to{opacity:1;transform:none}}
+.note .clover{font-size:30px}
+.note h2{font-family:var(--script);font-weight:700;font-size:clamp(3rem,13vw,4.4rem);line-height:1;color:#6d1b24}
+.note p{font-family:var(--script);font-weight:700;font-size:clamp(1.7rem,7vw,2.3rem);line-height:1.15;text-wrap:balance}
+.btn{
+  margin-top:8px;font-family:var(--script);font-weight:700;font-size:1.4rem;line-height:1;
+  background:#6d1b24;color:#f7ecd0;border:2px solid #6d1b24;border-radius:999px;padding:.55em 1.8em;cursor:pointer;
+}
+.btn:hover{filter:brightness(1.1)}
+.btn:focus-visible,.door:focus-visible{outline:3px solid var(--wine);outline-offset:3px}
+.note .btn:focus-visible{outline-color:#6d1b24}
+.veil-wrap{filter:drop-shadow(0 12px 28px rgba(0,0,0,.45))}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="clover" viewBox="-12 -12 24 24">
+      <circle cx="0" cy="-5.2" r="5.4"/><circle cx="5.2" cy="0" r="5.4"/><circle cx="0" cy="5.2" r="5.4"/><circle cx="-5.2" cy="0" r="5.4"/>
+    </symbol>
+    <symbol id="star" viewBox="-10 -10 20 20"><path d="M0,-10 Q1,-1 10,0 Q1,1 0,10 Q-1,1 -10,0 Q-1,-1 0,-10Z" fill="currentColor"/></symbol>
+  </defs>
+</svg>
+
+<main class="shop" aria-label="The eloàme candyshop storefront">
+  <header class="signboard">
+    <svg class="clover" aria-hidden="true"><use href="#clover" fill="currentColor"/></svg>
+    <h1 class="logo">eloàme</h1>
+    <div class="plate"><span>candy</span><svg class="clover" aria-hidden="true"><use href="#clover" fill="currentColor"/></svg><span>shop</span></div>
+  </header>
+  <div class="rail"></div>
+  <div class="awning" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+  <div class="front">
+    <div class="hang" aria-hidden="true">
+      <span class="chains"><i></i><i></i></span>
+      <span class="tag"><span>Tap door</span><span>to open</span></span>
+    </div>
+    <button type="button" class="door" id="door" aria-haspopup="dialog" aria-label="Door. The shop is closed. Tap to knock.">
+      <span class="leaf">
+        <span class="glass">
+          <svg class="star" aria-hidden="true"><use href="#star"/></svg>
+          <span class="closed">Closed</span>
+          <span class="rule" aria-hidden="true"><svg class="clover"><use href="#clover" fill="currentColor"/></svg></span>
+        </span>
+        <span class="panel"><i class="kick"></i></span>
+        <i class="knob"></i>
+      </span>
+    </button>
+
+    <div class="window" role="img" aria-label="Shop window: New menu coming soon">
+      <svg class="clover top" aria-hidden="true"><use href="#clover" fill="currentColor"/></svg>
+      <svg class="spark a" aria-hidden="true"><use href="#star"/></svg>
+      <svg class="spark b" aria-hidden="true"><use href="#star"/></svg>
+      <p class="say"><span>New menu</span><span>coming soon</span></p>
+      <svg class="swash" viewBox="0 0 300 18" aria-hidden="true"><path d="M8 13 Q120 2 292 9" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg>
+    </div>
+  </div>
+  <div class="sill"></div>
+  <div class="pavement" aria-hidden="true"></div>
+</main>
+
+<div class="veil" id="veil" hidden>
+  <div class="veil-wrap">
+    <div class="note" role="dialog" aria-modal="true" aria-labelledby="noteTitle" aria-describedby="noteText">
+      <svg class="clover" aria-hidden="true"><use href="#clover" fill="currentColor"/></svg>
+      <h2 id="noteTitle">Closed!</h2>
+      <p id="noteText">Come back on the 31st!</p>
+      <button type="button" class="btn" id="okay">Okay</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var door=document.getElementById('door'), veil=document.getElementById('veil'), okay=document.getElementById('okay');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function openNote(){
+    if(!veil.hidden) return;
+    door.classList.remove('rattle'); void door.offsetWidth; if(!reduce) door.classList.add('rattle');
+    setTimeout(function(){ veil.hidden=false; okay.focus(); }, reduce?0:260);
+  }
+  function closeNote(){ veil.hidden=true; door.focus(); }
+  door.addEventListener('click', openNote);
+  okay.addEventListener('click', closeNote);
+  veil.addEventListener('click', function(e){ if(e.target===veil || e.target.classList.contains('veil-wrap')) closeNote(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && !veil.hidden) closeNote(); });
+})();
+</script>
+</body>
+</html>
